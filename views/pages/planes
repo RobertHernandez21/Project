@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+
+</head>
+<body class="container">
+<h1>hello</h1>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <body>
+        
+        
+        <div class="row">
+            <% locals.length %>
+                    <form action="/planes", methods = "get">
+                    <% if (locals.plane) { %>
+                        <table class ="table" style="width:1200px ;">
+                            <thead class ="thead-dark">
+                            <tr>
+                                <th scope = "col">Make</th>
+                                <th scope = "col">Model</th>
+                                <th scope = "col">Year</th>
+                                <th scope = "col">Country</th>
+                                </tr>
+                            </thead>
+                            <% for(var i = 0; i <= (locals.length-1); i++){ %>
+                                <tr>
+                                    <th scope = "row"><%= locals.plane[i].make %></th>
+                                    <th scope = "row"><%= locals.plane[i].model %></th>
+                                    <th scope = "row"><%= locals.plane[i].year %></th>
+                                    <th scope = "row"><%= locals.plane[i].country %></th>
+                                </tr>
+                            
+                            <% } %>
+                            <% } %>
+                            
+                        </table>                                  
+                    
+        </div>
+
+<div class="'row">
+    <div class ="col-md-8">
+        <form action="/planes",method = "post">
+            <div class ="form-group">
+                <lable for="make" class="form-lable">Plane Make:</lable>
+                <input type="text" id="make" name="make"class="form-control" required>
+            </div>
+            <div class ="form-group">
+                <lable for="model" class="form-lable">Plane Model:</lable>
+                <input type="text" id="model" name="model"class="form-control" required>
+            </div>
+            <div class ="form-group">
+                <lable for="year" class="form-lable">Plane Year:</lable>
+                <input type="text" id="year" name="year"class="form-control" required>
+            </div>
+            <div class ="form-group">
+                <lable for="country" class="form-lable">Plane Country:</lable>
+                <input type="text" id="country" name="country"class="form-control" required>
+                
+            </div>
+            <button class="btn btn-primary" type="submit">Push me</button>
+        </form>
+    </div>
+</div>
+</body>
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
