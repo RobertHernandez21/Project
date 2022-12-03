@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="row">
+            <% locals.length %>
+                    <form action="/flights", methods = "get">
+                    <% if (locals.flight) { %>
+                        <table class ="table" style="width:1200px ;">
+                            <thead class ="thead-dark">
+                            <tr>
+                                <th scope = "col">Airport From</th>
+                                <th scope = "col">Airport To</th>
+                                <th scope = "col">date</th>
+                                <th scope = "col">Plane ID</th>
+                                </tr>
+                            </thead>
+                            <% for(var i = 0; i <= (locals.length-1); i++){ %>
+                                <tr>
+                                    <th scope = "row"><%= locals.flight[i].airportfromid %></th>
+                                    <th scope = "row"><%= locals.flight[i].airporttoid %></th>
+                                    <th scope = "row"><%= locals.flight[i].date %></th>
+                                    <th scope = "row"><%= locals.flight[i].planeid %></th>
+                                </tr>
+                            <% } %>
+                            <% } %>
+                        
+                        </table>
+                            
+                
+        </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
