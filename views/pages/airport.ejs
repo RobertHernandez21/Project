@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+
+</head>
+<body class="container">
+<h1>hello</h1>
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        
+        <div class="row">
+            <% locals.length %>
+                    <form action="/airports", methods = "get">
+                    <% if (locals.airport) { %>
+                        <table class ="table" style="width:1200px ;">
+                            <thead class ="thead-dark">
+                            <tr>
+                                <th scope = "col">Airport Code</th>
+                                <th scope = "col">Airport Name</th>
+                                <th scope = "col">Country</th>
+                                </tr>
+                            </thead>
+                            <% for(var i = 0; i <= (locals.length-1); i++){ %>
+                            <tr>
+                                <th scope = "row"><%= locals.airport[i].airportcode %></th>
+                                <th scope = "row"><%= locals.airport[i].airportname %></th>
+                                <th scope = "row"><%= locals.airport[i].country %></th>
+                            </tr>
+                        
+                            <% } %>
+                            <% } %>  
+                        </table>                                
+                    </form>
+
+        </div>
+        <div class="'row">
+            <div class ="col-md-8">
+                <form action="/airports",method = "post">
+                    <div class ="form-group">
+                        <lable for="code" class="form-lable">Airport Code:</lable>
+                        <input type="text" id="code" name="code"class="form-control" required>
+                    </div>
+                    <div class ="form-group">
+                        <lable for="name" class="form-lable">Airport Name:</lable>
+                        <input type="text" id="name" name="name"class="form-control" required>
+                    </div>
+                    <div class ="form-group">
+                        <lable for="country" class="form-lable">Airport Country:</lable>
+                        <input type="text" id="country" name="country"class="form-control" required>
+                        
+                    </div>
+                    <button class="btn btn-primary" type="submit">Push me</button>
+                </form>
+            </div>
+        </div>
+    </main> 
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
